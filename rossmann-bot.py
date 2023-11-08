@@ -13,10 +13,14 @@ TOKEN = '6190522262:AAHjVuTbI9GQgo0lUOPURZ8umSRx1eCvOhI'
 #get updats
 #https://api.telegram.org/bot6190522262:AAHjVuTbI9GQgo0lUOPURZ8umSRx1eCvOhI/getUpdates
 
+#WEBhook
+#https://api.telegram.org/bot6190522262:AAHjVuTbI9GQgo0lUOPURZ8umSRx1eCvOhI/setWebhook?url=https://bot-telegram-m78s.onrender.com
+
+
 #send message
 #https://api.telegram.org/bot6190522262:AAHjVuTbI9GQgo0lUOPURZ8umSRx1eCvOhI/sendMessage?chat_id=6488865923&text=Oi Bruno, eu estou bem!
 
-def send_masseg( chat_id, text):
+def send_message( chat_id, text):
     url='https://api.telegram.org/bot{}/'.fomat(TOKEN)
     url = url + 'sendMessage?chat_id={}'.format(chat_id) 
     r = requests.post(url, json={'text':text})
@@ -104,7 +108,7 @@ def index():
                 send_message(chat_id, msg)
                 return Response ("Ok", Status = 200 )
             else:
-                send_message( chat_id, 'Store Not Available' )
+                send_message(chat_id, 'Store Not Available' )
                 return Response ('Ok', status = 200)
 
         else:
